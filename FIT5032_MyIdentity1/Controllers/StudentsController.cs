@@ -50,7 +50,7 @@ namespace FIT5032_MyIdentity1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName")] Student student)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName, DOB, address, Role")] Student student)
         {
             student.UserId = User.Identity.GetUserId();
             ModelState.Clear();
@@ -86,7 +86,7 @@ namespace FIT5032_MyIdentity1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,UserId")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,UserId, DOB, address, Role")] Student student)
         {
             if (ModelState.IsValid)
             {
